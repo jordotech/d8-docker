@@ -2,4 +2,4 @@ FROM wodby/drupal-php:7.3-dev-4.13.10
 USER root
 RUN apk update
 RUN apk add vim tree htop
-RUN composer install
+RUN composer global require hirak/prestissimo

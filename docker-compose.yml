@@ -14,7 +14,9 @@ services:
       - ./db-init:/docker-entrypoint-initdb.d # Place init .sql file(s) here.
       - drupal_db_data:/var/lib/mysql:delegated
   php:
-    image: wodby/drupal-php:$PHP_TAG
+    build:
+      context: .
+      dockerfile: ./DockerfilePhp
     container_name: "${PROJECT_NAME}_php"
     environment:
       PHP_SENDMAIL_PATH: /usr/sbin/sendmail -t -i -S mailhog:1025
